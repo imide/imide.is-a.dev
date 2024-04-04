@@ -1,0 +1,29 @@
+---
+const { tech, desc, name } = Astro.props;
+---
+
+<div class="card w-full self-stretch md:w-1/2 lg:w-1/2">
+  <a
+    class="flex h-full cursor-pointer flex-col gap-3 p-2 md:p-2"
+    href={`https://github.com/chadcat7/${name}`}
+  >
+    <div
+      class="rounded-lg border-2 border-neutral-800 bg-[#0e0e0e] px-4 py-4 md:px-4 lg:px-8 lg:py-6"
+    >
+      <div class="flex flex-wrap items-center gap-4">
+        <p class="text-2xl font-bold text-primary">{name}</p>
+        <div class="flex flex-wrap gap-4 self-center">
+          {
+            tech.map((i) => (
+              <span class="rounded-md border-2 border-neutral-800 bg-[#1a1a1a] px-4  py-2 font-mono text-sm text-fg">
+                {i.name}
+              </span>
+            ))
+          }
+        </div>
+      </div>
+      <p class="mt-4 font-light leading-6 text-fg">{desc}</p>
+    </div>
+  </a>
+</div>
+<style></style>

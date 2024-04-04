@@ -1,0 +1,97 @@
+---
+import Layout from "../layouts/Layout.astro";
+const skills = [
+  "HTML",
+  "CSS",
+  "SASS",
+  "JavaScript",
+  "TypeScript",
+  "Rust",
+  "Lua",
+  "Python",
+  "TailwindCSS",
+  "DaisyUI",
+  "Bootstrap",
+  "Astro",
+  "React",
+  "NextJS",
+  "RemixJS",
+  "Vue",
+  "Node",
+  "Express",
+  "Flask",
+  "Firebase",
+  "MongoDB",
+  "Prisma",
+  "Figma",
+  "UI/UX",
+  "Discord.js",
+  "Discord.py",
+  "Serenity",
+];
+import Quote from "../components/Quote.astro";
+---
+
+<Layout title="nam" description="nam's personal website and blog.">
+  <div class="flex w-full flex-col items-center justify-center gap-2 md:p-8">
+    <div class="w-full flex-col px-8 py-4 md:w-2/3 lg:w-1/2">
+      <div class="flex flex-wrap items-end justify-between gap-4">
+        <div class="flex items-center gap-4">
+          <img
+            src="/profilepicture.png"
+            alt="pfp"
+            class="h-8 w-8 rounded-full border-[1px] border-fg"
+          />
+          <h1 class="self-end text-left text-2xl text-fg">Namish</h1>
+          <h1 class="text-md self-end text-left text-gray-500">16M (he/him)</h1>
+        </div>
+        <p class="text-gray-500">
+          num-ish ⋅ mythological god (south east asia)
+        </p>
+      </div>
+      <p class="mt-8 text-[20px] text-bright">
+        Hi! I am your friendly neighbourhood nerd programmer. I am currently
+        studying for <a
+          href="https://jeemain.nta.ac.in/"
+          target="_blank"
+          class="text-fg underline">JEE</a
+        > but love to program and explore computers in my free time. I am fairly
+        good in <span class="text-fg"
+          >designing, front end development, ricing and poetry.</span
+        > I can also fluently play the <span class="text-fg"
+          >piano. (Passed Trinity College Grade V)</span
+        >
+      </p>
+      <div class="mt-8 inline-block h-[2px] bg-bg3 px-16"></div>
+      <h1 class="mb-2 mt-8 text-2xl text-fg">
+        <span class="text-gray-500">Skill</span> Set
+      </h1>
+      <div class="flex flex-wrap gap-4">
+        {
+          skills.map((i, j) => {
+            return <p class="mt-2  rounded-md bg-mbg px-4 py-2 text-fg">{i}</p>;
+          })
+        }
+      </div>
+      <div class="mt-8 inline-block h-[2px] bg-bg3 px-16"></div>
+      <h1 class="mb-2 mt-8 text-2xl text-fg">
+        <span class="text-gray-500">My</span> Setup
+      </h1>
+      <ul
+        class="mt-4 list-inside list-decimal text-lg leading-[2.2rem] text-bright"
+      >
+        <li>Operating System: <span class="text-fg">Nix OS</span></li>
+        <li>
+          Window Managers: <span class="text-fg">dwm, awesomewm, swayfx</span>
+        </li>
+        <li>Terminal & Shell: <span class="text-fg">wezterm with zsh</span></li>
+        <li>Code Editor: <span class="text-fg">Neovim</span></li>
+      </ul>
+      <div class="mt-8 inline-block h-[2px] bg-bg3 px-16"></div>
+      <h1 class="mb-2 mt-8 text-2xl text-fg">
+        <span class="text-gray-500">Testimonial</span>
+      </h1>
+      <Quote />
+    </div>
+  </div>
+</Layout>
