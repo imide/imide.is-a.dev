@@ -12,14 +12,14 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.5.10",
-    "@astrojs/mdx": "2.2.3",
+    "@astrojs/mdx": "2.2.4",
     "@astrojs/react": "3.1.1",
     "@astrojs/tailwind": "5.1.0",
     "@swup/astro": "^1.4.0",
     "@types/react": "^18.2.33",
     "@types/react-dom": "^18.2.14",
     "@unocss/astro": "^null",
-    "astro": "^4.5.15",
+    "astro": "4.5.16",
     "astro-bun-adapter": "^1.0.2",
     "mafs": "^0.17.1",
     "react": "^18.2.0",
@@ -41,7 +41,7 @@
     "prettier-config-standard": "^7.0.0",
     "prettier-plugin-astro": "^0.13.0",
     "prettier-plugin-tailwindcss": "^0.5.13",
-    "unocss": "^0.57.1"
+    "unocss": "^0.59.0-beta.1"
   },
   "trustedDependencies": [
     "core-js",
