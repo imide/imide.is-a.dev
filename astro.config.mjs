@@ -9,33 +9,30 @@ import bun from "astro-bun-adapter";
 import unocss from "@unocss/astro";
 import swup from "@swup/astro";
 
+import cloudflare from "@astrojs/cloudflare";
+
 // https://astro.build/config
 export default defineConfig({
   site: "https://imide.is-a.dev",
-  integrations: [
-    tailwind(),
-    mdx({
-      syntaxHighlight: "shiki",
-      shikiConfig: {
-        theme: "css-variables",
-      },
-      remarkPlugins: [remarkMdxCodeMeta, remarkMath],
-      rehypePlugins: [rehypeKatex],
-      remarkRehype: {
-        footnoteLabel: "Footnotes",
-      },
-      gfm: false,
-    }),
-    react(),
-    unocss(),
-    swup({
-      smoothScrolling: true,
-    }),
-  ],
+  integrations: [tailwind(), mdx({
+    syntaxHighlight: "shiki",
+    shikiConfig: {
+      theme: "css-variables"
+    },
+    remarkPlugins: [remarkMdxCodeMeta, remarkMath],
+    rehypePlugins: [rehypeKatex],
+    remarkRehype: {
+      footnoteLabel: "Footnotes"
+    },
+    gfm: false
+  }), react(), unocss(), swup({
+    smoothScrolling: true
+  })],
   vite: {
     ssr: {
-      noExternal: ["mafs"],
-    },
+      noExternal: ["mafs"]
+    }
   },
-  adapter: bun(),
+  adapter: cloudflare(),
+  output: "server"
 });
