@@ -20,7 +20,7 @@ export default {
         darker: "#000008",
         bg: "#0d0f18",
         mbg: "#050710",
-        bg3: "#000008",
+        bg3: "#6e92d4",
         fg: "#a5b6cf",
         bright: "#b0b3b8",
         error: "#dd6777",

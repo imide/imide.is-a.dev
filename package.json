@@ -49,6 +49,7 @@
     "esbuild",
     "postinstall",
     "sharp",
-    "swup"
+    "swup",
+    "workerd"
   ]
 }

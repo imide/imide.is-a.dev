@@ -20,7 +20,7 @@ const skills = [
 import Quote from "../components/Quote.astro";
 ---
 
-<Layout title="nam" description="imide's personal website">
+<Layout title="imide" description="imide's personal website">
   <div class="flex w-full flex-col items-center justify-center gap-2 md:p-8">
     <div class="w-full flex-col px-8 py-4 md:w-2/3 lg:w-1/2">
       <div class="flex flex-wrap items-end justify-between gap-4">
@@ -43,43 +43,58 @@ import Quote from "../components/Quote.astro";
           href="https://jeemain.nta.ac.in/"
           target="_blank"
           class="text-fg underline">yasmb.</a
-        > but love to program and explore computers in my free time. I am fairly
-        good in <span class="text-fg"
-          >designing, front end development, ricing and poetry.</span
-        > I can also fluently play the <span class="text-fg"
-          >piano. (Passed Trinity College Grade V)</span
+        > i sometimes enjoy coding in my freetime. i am kinda good in <span
+          class="text-fg"
+          >backend development, linux administration, shitposting and video
+          games (debatable).</span
+        > i am willing to learn new things. if i can focus on them.
+      </p>
+      <p class="mt-8 text-[20px] text-bright">
+        my timezone is <span class="text-fg">mst</span> which is <span
+          class="text-fg">2 hours behind est.</span
         >
       </p>
-      <div class="mt-8 inline-block h-[2px] bg-bg3 px-16"></div>
-      <h1 class="mb-2 mt-8 text-2xl text-fg">
-        <span class="text-gray-500">Skill</span> Set
-      </h1>
-      <div class="flex flex-wrap gap-4">
-        {
-          skills.map((i, j) => {
-            return <p class="mt-2  rounded-md bg-mbg px-4 py-2 text-fg">{i}</p>;
-          })
-        }
-      </div>
-      <div class="mt-8 inline-block h-[2px] bg-bg3 px-16"></div>
-      <h1 class="mb-2 mt-8 text-2xl text-fg">
-        <span class="text-gray-500">My</span> Setup
-      </h1>
-      <ul
-        class="mt-4 list-inside list-decimal text-lg leading-[2.2rem] text-bright"
-      >
-        <li>Operating System: <span class="text-fg">Nix OS</span></li>
-        <li>
-          Window Managers: <span class="text-fg">dwm, awesomewm, swayfx</span>
-        </li>
-        <li>Terminal & Shell: <span class="text-fg">wezterm with zsh</span></li>
-        <li>Code Editor: <span class="text-fg">Neovim</span></li>
-      </ul>
-      <div class="mt-8 inline-block h-[2px] bg-bg3 px-16"></div>
-      <h1 class="mb-2 mt-8 text-2xl text-fg">
-        <span class="text-gray-500">Testimonial</span>
-      </h1>
-      <Quote />
+      <p class="mt-3 text-[20px] text-bright">
+        i am a strong believer in the <a
+          href="https://www.strongtowns.org/"
+          target="_blank"
+          class="text-fg underline">strong towns movement.</a
+        >
+        <div class="mt-8 inline-block h-[2px] bg-bg3 px-16"></div>
+        <h1 class="mb-2 mt-8 text-2xl text-fg">
+          <span class="text-gray-500">"skill"</span> set
+        </h1>
+        <div class="flex flex-wrap gap-4">
+          {
+            skills.map((i, j) => {
+              return (
+                <p class="mt-2  rounded-md bg-mbg px-4 py-2 text-fg">{i}</p>
+              );
+            })
+          }
+        </div>
+        <div class="mt-8 inline-block h-[2px] bg-bg3 px-16"></div>
+        <h1 class="mb-2 mt-8 text-2xl text-fg">
+          <span class="text-gray-500">my</span> setup
+        </h1>
+        <ul
+          class="mt-4 list-inside list-decimal text-lg leading-[2.2rem] text-bright"
+        >
+          <li>
+            operating system: <span class="text-fg">endeavour, windows</span>
+          </li>
+          <li>
+            desktops: <span class="text-fg">gnome, hyprland</span>
+          </li>
+          <li>terminal and shell: <span class="text-fg">st with fish</span></li>
+          <li>ide: <span class="text-fg">jetbrains</span></li>
+        </ul>
+        <div class="mt-8 inline-block h-[2px] bg-bg3 px-16"></div>
+        <h1 class="mb-2 mt-8 text-2xl text-fg">
+          <span class="text-gray-500">testimonial</span>
+        </h1>
+        <Quote />
+      </p>
     </div>
   </div>
 </Layout>
