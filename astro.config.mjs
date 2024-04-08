@@ -2,10 +2,7 @@ import { defineConfig } from "astro/config";
 import tailwind from "@astrojs/tailwind";
 import mdx from "@astrojs/mdx";
 import remarkMdxCodeMeta from "remark-mdx-code-meta";
-import rehypeKatex from "rehype-katex";
-import remarkMath from "remark-math";
 import react from "@astrojs/react";
-import bun from "astro-bun-adapter";
 import unocss from "@unocss/astro";
 import swup from "@swup/astro";
 
@@ -19,8 +16,7 @@ export default defineConfig({
     shikiConfig: {
       theme: "css-variables"
     },
-    remarkPlugins: [remarkMdxCodeMeta, remarkMath],
-    rehypePlugins: [rehypeKatex],
+    remarkPlugins: [remarkMdxCodeMeta],
     remarkRehype: {
       footnoteLabel: "Footnotes"
     },
@@ -33,6 +29,8 @@ export default defineConfig({
       noExternal: ["mafs"]
     }
   },
-  adapter: cloudflare(),
+  adapter: cloudflare({
+    imageService: 'cloudflare',
+  }),
   output: "server"
 });

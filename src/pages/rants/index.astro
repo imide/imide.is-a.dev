@@ -9,7 +9,7 @@ let arr = allPosts.sort(
 );
 ---
 
-<Layout title="Blog" description="List Of Archives">
+<Layout title="rants" description="archive list">
   <div class="div w-screen">
     <div class="flex items-center justify-center gap-2 lg:gap-0">
       <div class="w-full p-2 md:w-2/3 lg:w-1/2">
@@ -19,7 +19,7 @@ let arr = allPosts.sort(
           <ul class="flex w-full flex-wrap">
             {
               arr.map((item, index) => {
-                const href = `/blog/${item.file.split("/").pop().split(".").shift()}`;
+                const href = `/rants/${item.file.split("/").pop().split(".").shift()}`;
                 return (
                   <a
                     href={href}
