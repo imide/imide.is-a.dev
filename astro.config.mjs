@@ -5,6 +5,7 @@ import remarkMdxCodeMeta from "remark-mdx-code-meta";
 import react from "@astrojs/react";
 import unocss from "@unocss/astro";
 import swup from "@swup/astro";
+import cloudflare from "@astrojs/cloudflare";
 
 // https://astro.build/config
 export default defineConfig({
@@ -22,10 +23,8 @@ export default defineConfig({
     }), react(), unocss(), swup({
         smoothScrolling: true
     })],
-    vite: {
-        ssr: {
-            noExternal: ["mafs"]
-        }
-    },
+    adapter: cloudflare({
+        imageService: 'cloudflare',
+    }),
     output: "server"
 });
