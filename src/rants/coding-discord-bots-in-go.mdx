@@ -13,17 +13,19 @@ my first language was javascript. i then quickly hated it so i moved to typescri
 however, i wanted to learn go. i had heard a lot of good things about go and i wanted to try it out. so i started learning go and i loved it. i loved the simplicity of it. i loved the performance of it. i loved the tooling of it. i loved everything about it. so i decided to make a discord bot in go.
 
 ## the problem
+
 the largest library for discord in go is [discord.go](https://github.com/bwmarrin/discordgo). i assumed the project layout for typescript bots was similar to discord.go bots, so i started coding. **grave mistake.**
 
 i **would** have known this if the documentation was finished, but it wasnt. there were also no up-to-date tutorials, guides, or templates out there. so i was left to figure it out myself. and i did. (kinda) after that, i decided to dig further. here is what i found:
 
-* ### the library is not beginner-friendly
- by beginner-friendly, i mean that for anyone not familiar with the discord api or the library, it is hard to get started. the only documentation was the auto-generated one on pkg.go.dev. it was not beginner-friendly at all. it was hard to understand and it was not easy to navigate.
+- ### the library is not beginner-friendly
+  by beginner-friendly, i mean that for anyone not familiar with the discord api or the library, it is hard to get started. the only documentation was the auto-generated one on pkg.go.dev. it was not beginner-friendly at all. it was hard to understand and it was not easy to navigate.
 
 well sure, the auto-generated documentation is not the best, its still a lot better than nothing. but i see the auto-gen stuff as a **reference** instead of a **guide**. i would have loved a guide on how to get started with the library, how to make a simple bot, etc. but there was none.
 
-* ### the examples are a cluster-fuck.
-the developers of discordgo are former java devs. while nothing is wrong with that, discordgo feels like a java library. for example:
+- ### the examples are a cluster-fuck.
+  the developers of discordgo are former java devs. while nothing is wrong with that, discordgo feels like a java library. for example:
+
 ```go
 "permission-overview": func(s *discordgo.Session, i *discordgo.InteractionCreate) {
 perms, err := s.ApplicationCommandPermissions(s.State.User.ID, i.GuildID, i.ApplicationCommandData().ID)
@@ -35,7 +37,9 @@ perms, err := s.ApplicationCommandPermissions(s.State.User.ID, i.GuildID, i.Appl
 					Data: &discordgo.InteractionResponseData{
 						Content: ":x: No permission overwrites",
 ```
-and this is one of the *more* tame ones. theres this beauty (please scroll, its majestic):
+
+and this is one of the _more_ tame ones. theres this beauty (please scroll, its majestic):
+
 ```go
 "options": func(s *discordgo.Session, i *discordgo.InteractionCreate) {
 			// Access options in the order provided by the user.
@@ -104,9 +108,11 @@ and this is one of the *more* tame ones. theres this beauty (please scroll, its 
 			})
 		},
 ```
+
 well, what do these codeblocks mean? well, for starters:
- 1. the first one is a command that checks if the bot has permissions to run a command. it then sends a message if it doesnt. could you tell? no? me neither.
- 2. the second one is a command that takes in options and sends a message with the options. how on earth is this considered readable?
+
+1.  the first one is a command that checks if the bot has permissions to run a command. it then sends a message if it doesnt. could you tell? no? me neither.
+2.  the second one is a command that takes in options and sends a message with the options. how on earth is this considered readable?
 
 and here is the kicker; **every single line of code i posted here is from the official examples.** i didnt make this up. this is how the official examples look like, and this is just the tip of the iceberg. every example is a single main.go file written (sans one) are two years old lol
 

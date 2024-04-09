@@ -2,143 +2,142 @@
 import Layout from "../layouts/Layout.astro";
 let allPosts = await Astro.glob("../rants/*.mdx");
 let rants = allPosts.sort(
-    (a, b) =>
-        new Date(b.frontmatter.date).valueOf() -
-        new Date(a.frontmatter.date).valueOf(),
+  (a, b) =>
+    new Date(b.frontmatter.date).valueOf() -
+    new Date(a.frontmatter.date).valueOf(),
 );
 let a = [rants[0], rants[1], rants[2], rants[3]];
 ---
 
 <Layout title="imide" description="imide's shamelessy stolen website">
-    <div class="flex w-full flex-col items-center justify-center gap-2 md:p-8">
-        <div class="w-full flex-col px-8 py-4 md:w-2/3 lg:w-1/2">
-            <div class="flex items-center gap-4">
-                <img
-                        src="/profilepicture.png"
-                        alt="pfp"
-                        class="h-8 w-8 rounded-full border-[1px] border-fg"
-                />
-                <h1 class="self-end text-left text-2xl text-fg">imide</h1>
-                <h1 class="text-md self-end text-left text-gray-500">15M (he/him)</h1>
-            </div>
-            <p class="mt-8 text-[20px] text-bright">
-                hey. i am imide. welcome to my website.
-            </p>
-            <p class="mt-4 text-[20px] text-bright">
-                a rather dumb programmer. pretty good in <span class="text-fg">go</span>
-                and <span class="text-fg">minecraft building</span>. i enjoy <span
-                    class="text-fg">sports</span
-            >, <span class="text-fg">coding</span>, and <span class="text-fg"
-            >movies</span
-            >.
-                <br/>
-                i am mostly a backend developer, but i want to become a fullstack dev. i
-                sometimes rant <span
-            ><a href="/rants" class="text-fg underline">about random things</a
-            ></span
-            > and <span
-            ><a href="/stuff" class="text-fg underline">code junk</a></span
-            > in my free time.
-            </p>
-            <p class="mt-2 text-[20px] text-bright">
-                water polo enthusiant. strong towns supporter.
-            </p>
-            <div class="my-8 inline-block h-[2px] bg-bg3 px-16"></div>
-            <h1 class="text-2xl text-fg">
-        <span class="text-gray-500"
-        >(some of my def terribly coded)</span
-        > projects over time <a href="/stuff"
-            ><i class="ph ph-arrow-right ml-2 text-sm"></i></a
-            >
-            </h1>
-            <div class="cardscontainer mt-4 flex flex-wrap justify-center gap-4">
-            </div>
-            <h1 class="mb-2 mt-8 text-2xl text-fg">
-                <span class="text-gray-500">recent</span> rants <a href="/rants"
-            ><i class="ph ph-arrow-right ml-2 text-sm"></i></a
-            >
-            </h1>
-            <ul class="list-inside">
-                {
-                    a.map((i, j) => {
-                        if (i && i.file) {
-                            return (
-                                    <li class="my-6 w-full cursor-pointer">
-                                        <a
-                                                class="flex w-full justify-between"
-                                                href={`/rants/${i.file.split("/").pop().split(".").shift()}`}
-                                        >
-                                            <p class="text-fg">
-                                                {j + 1}. {i.frontmatter.title}{" "}
-                                                <span class="ml-2 text-gray-500 md:ml-8">
-                      {i.frontmatter.date}
-                    </span>
-                                            </p>
-                                        </a>
-                                    </li>
-                            );
-                        }
-                    })
-                }
-            </ul>
-            <div class="my-8 inline-block h-[2px] bg-bg3 px-16"></div>
-            <p class="text-[20px] text-bright">
-                you can find me at <a
-                    target="_blank"
-                    href="https://discord.com/users/555915168932954112"
-                    class="text-fg underline">discord</a
-            >
-                , <a
-                    href="https://reddit.com/u/ZacsNotInnocent"
-                    target="_blank"
-                    class="text-fg underline">reddit (rarely use)</a
-            > and <a
-                    target="_blank"
-                    href="https://github.com/imide"
-                    class="text-fg underline">github</a
-            >.
-                <br/>
-                you can also contact me via my mail address <span class="text-fg"
-            >imide@imide.is-a.dev</span
-            >. anyways, yeah. this is my website.
-            </p>
-            <div class="my-8 inline-block h-[2px] bg-bg3 px-16 centered">
-                <p class="mt-8 text-[20px] text-bright">
-                    made with <span class="text-fg">❤️</span> from colorado. hosted on <span
-                        class="text-fg">cloudflare</span
-                >. <br/>
-                    heavily based on <a
-                        target="_blank"
-                        href="https://github.com/chadcat7/chadcat7.github.io"
-                        class="text-fg underline"
-                >
-                    chadcat7's website (thank you!)
-                </a>
-                    <br/>
-                    🇵🇸🕊️
-                </p>
-            </div>
-        </div>
+  <div class="flex w-full flex-col items-center justify-center gap-2 md:p-8">
+    <div class="w-full flex-col px-8 py-4 md:w-2/3 lg:w-1/2">
+      <div class="flex items-center gap-4">
+        <img
+          src="/profilepicture.png"
+          alt="pfp"
+          class="h-8 w-8 rounded-full border-[1px] border-fg"
+        />
+        <h1 class="self-end text-left text-2xl text-fg">imide</h1>
+        <h1 class="text-md self-end text-left text-gray-500">15M (he/him)</h1>
+      </div>
+      <p class="mt-8 text-[20px] text-bright">
+        hey. i am imide. welcome to my website.
+      </p>
+      <p class="mt-4 text-[20px] text-bright">
+        a rather dumb programmer. pretty good in <span class="text-fg">go</span>
+        and <span class="text-fg">minecraft building</span>. i enjoy <span
+          class="text-fg">sports</span
+        >, <span class="text-fg">coding</span>, and <span class="text-fg"
+          >movies</span
+        >.
+        <br />
+        i am mostly a backend developer, but i want to become a fullstack dev. i
+        sometimes rant <span
+          ><a href="/rants" class="text-fg underline">about random things</a
+          ></span
+        > and <span
+          ><a href="/stuff" class="text-fg underline">code junk</a></span
+        > in my free time.
+      </p>
+      <p class="mt-2 text-[20px] text-bright">
+        water polo enthusiant. strong towns supporter.
+      </p>
+      <div class="my-8 inline-block h-[2px] bg-bg3 px-16"></div>
+      <h1 class="text-2xl text-fg">
+        <span class="text-gray-500">(some of my def terribly coded)</span> projects
+        over time <a href="/stuff"
+          ><i class="ph ph-arrow-right ml-2 text-sm"></i></a
+        >
+      </h1>
+      <div class="cardscontainer mt-4 flex flex-wrap justify-center gap-4">
+      </div>
+      <h1 class="mb-2 mt-8 text-2xl text-fg">
+        <span class="text-gray-500">recent</span> rants <a href="/rants"
+          ><i class="ph ph-arrow-right ml-2 text-sm"></i></a
+        >
+      </h1>
+      <ul class="list-inside">
+        {
+          a.map((i, j) => {
+            if (i && i.file) {
+              return (
+                <li class="my-6 w-full cursor-pointer">
+                  <a
+                    class="flex w-full justify-between"
+                    href={`/rants/${i.file.split("/").pop().split(".").shift()}`}
+                  >
+                    <p class="text-fg">
+                      {j + 1}. {i.frontmatter.title}{" "}
+                      <span class="ml-2 text-gray-500 md:ml-8">
+                        {i.frontmatter.date}
+                      </span>
+                    </p>
+                  </a>
+                </li>
+              );
+            }
+          })
+        }
+      </ul>
+      <div class="my-8 inline-block h-[2px] bg-bg3 px-16"></div>
+      <p class="text-[20px] text-bright">
+        you can find me at <a
+          target="_blank"
+          href="https://discord.com/users/555915168932954112"
+          class="text-fg underline">discord</a
+        >
+        , <a
+          href="https://reddit.com/u/ZacsNotInnocent"
+          target="_blank"
+          class="text-fg underline">reddit (rarely use)</a
+        > and <a
+          target="_blank"
+          href="https://github.com/imide"
+          class="text-fg underline">github</a
+        >.
+        <br />
+        you can also contact me via my mail address <span class="text-fg"
+          >imide@imide.is-a.dev</span
+        >. anyways, yeah. this is my website.
+      </p>
+      <div class="centered my-8 inline-block h-[2px] bg-bg3 px-16">
+        <p class="mt-8 text-[20px] text-bright">
+          made with <span class="text-fg">❤️</span> from colorado. hosted on <span
+            class="text-fg">cloudflare</span
+          >. <br />
+          heavily based on <a
+            target="_blank"
+            href="https://github.com/chadcat7/chadcat7.github.io"
+            class="text-fg underline"
+          >
+            chadcat7's website (thank you!)
+          </a>
+          <br />
+          🇵🇸🕊️
+        </p>
+      </div>
     </div>
+  </div>
 
-    <script>
-        const cards = document.querySelector(".cardscontainer");
-        const repos = "https://api.github.com/users/imide/repos";
+  <script>
+    const cards = document.querySelector(".cardscontainer");
+    const repos = "https://api.github.com/users/imide/repos";
 
-        fetch(repos)
-            .then((res) => res.json())
-            .then((data) => {
-                data.map((d, i) => {
-                    if (["aafl-rewrite", "yasmb", "arithmetic"].indexOf(d.name) > -1) {
-                        cards.innerHTML += `
+    fetch(repos)
+      .then((res) => res.json())
+      .then((data) => {
+        data.map((d, i) => {
+          if (["aafl-rewrite", "yasmb", "arithmetic"].indexOf(d.name) > -1) {
+            cards.innerHTML += `
         <a class="bg-mbg p-4 text-bright rounded-xl w-full md:w-[15.5rem]" href="${d.html_url}"><article> 
           <h3 class="text-fg">${d.name}</h3>
           <p class="mb-2">${d.description}</p>
           <p><i class="hover:text-warn ph-fill ph-star"></i> ${d.stargazers_count}</p>
         </article></a>
       `;
-                    }
-                });
-            });
-    </script>
+          }
+        });
+      });
+  </script>
 </Layout>
