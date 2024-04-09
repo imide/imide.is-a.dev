@@ -1,13 +1,116 @@
 ---
 title: coding discord bots in go kinda sucks
-description: i'm not a fan of coding discord bots in go. i love go and i really think go is the best language for backend development like this, but discordgo is just not a good library for that.
-date: 8 Apr 2024
+description: and its not for what you think. rant about discordgo
+date: 9 Apr 2024
 author: imide
 category: programming
 ---
 
-# coding discord bots in go kinda sucks.
-and its not for what you think. but first we need some background context.
-
 ## background
-my first language was javascript. i then quickly hated it so i moved to typescript. i started bot development with discord.js and i loved it. i loved the simplicity of it. i loved how easy it was to get started. i loved how easy it was to make a bot. i loved how easy it was to make a command. i loved how easy it was to make a command that did something. i loved how easy it was to make a command that did something and then did something else. i loved how easy it was to make a command that did something and then did something else and then did something else. i loved how easy it was to make a command that did something and then did something else and then did something else and then did something else. i loved how easy it was to make a command that did something and then did something else and then did something else and then did something else and then did something else. i loved how easy it was to make a command that did something and then did something else and then did something else and then did something else and then did something else and then did something else. i loved how easy it was to make a command that did something and then did something else and then did something else and then did something else and then did something else and then did something else and then did something else. i loved how easy it was to make a command that did something
+
+my first language was javascript. i then quickly hated it so i moved to typescript. i started bot development with discord.js and i loved it. i loved the simplicity of it. also, the documentation was top-notch (especially for morons and people new to code like me) so it was relatively easy to get started.
+/
+however, i wanted to learn go. i had heard a lot of good things about go and i wanted to try it out. so i started learning go and i loved it. i loved the simplicity of it. i loved the performance of it. i loved the tooling of it. i loved everything about it. so i decided to make a discord bot in go.
+
+## the problem
+the largest library for discord in go is [discord.go](https://github.com/bwmarrin/discordgo). i assumed the project layout for typescript bots was similar to discord.go bots, so i started coding. **grave mistake.**
+
+i **would** have known this if the documentation was finished, but it wasnt. there were also no up-to-date tutorials, guides, or templates out there. so i was left to figure it out myself. and i did. (kinda) after that, i decided to dig further. here is what i found:
+
+* ### the library is not beginner-friendly
+ by beginner-friendly, i mean that for anyone not familiar with the discord api or the library, it is hard to get started. the only documentation was the auto-generated one on pkg.go.dev. it was not beginner-friendly at all. it was hard to understand and it was not easy to navigate.
+
+well sure, the auto-generated documentation is not the best, its still a lot better than nothing. but i see the auto-gen stuff as a **reference** instead of a **guide**. i would have loved a guide on how to get started with the library, how to make a simple bot, etc. but there was none.
+
+* ### the examples are a cluster-fuck.
+the developers of discordgo are former java devs. while nothing is wrong with that, discordgo feels like a java library. for example:
+```go
+"permission-overview": func(s *discordgo.Session, i *discordgo.InteractionCreate) {
+perms, err := s.ApplicationCommandPermissions(s.State.User.ID, i.GuildID, i.ApplicationCommandData().ID)
+
+			var restError *discordgo.RESTError
+			if errors.As(err, &restError) && restError.Message != nil && restError.Message.Code == discordgo.ErrCodeUnknownApplicationCommandPermissions {
+				s.InteractionRespond(i.Interaction, &discordgo.InteractionResponse{
+					Type: discordgo.InteractionResponseChannelMessageWithSource,
+					Data: &discordgo.InteractionResponseData{
+						Content: ":x: No permission overwrites",
+```
+and this is one of the *more* tame ones. theres this beauty (please scroll, its majestic):
+```go
+"options": func(s *discordgo.Session, i *discordgo.InteractionCreate) {
+			// Access options in the order provided by the user.
+			options := i.ApplicationCommandData().Options
+
+			// Or convert the slice into a map
+			optionMap := make(map[string]*discordgo.ApplicationCommandInteractionDataOption, len(options))
+			for _, opt := range options {
+				optionMap[opt.Name] = opt
+			}
+
+			// This example stores the provided arguments in an []interface{}
+			// which will be used to format the bot's response
+			margs := make([]interface{}, 0, len(options))
+			msgformat := "You learned how to use command options! " +
+				"Take a look at the value(s) you entered:\n"
+
+			// Get the value from the option map.
+			// When the option exists, ok = true
+			if option, ok := optionMap["string-option"]; ok {
+				// Option values must be type asserted from interface{}.
+				// Discordgo provides utility functions to make this simple.
+				margs = append(margs, option.StringValue())
+				msgformat += "> string-option: %s\n"
+			}
+
+			if opt, ok := optionMap["integer-option"]; ok {
+				margs = append(margs, opt.IntValue())
+				msgformat += "> integer-option: %d\n"
+			}
+
+			if opt, ok := optionMap["number-option"]; ok {
+				margs = append(margs, opt.FloatValue())
+				msgformat += "> number-option: %f\n"
+			}
+
+			if opt, ok := optionMap["bool-option"]; ok {
+				margs = append(margs, opt.BoolValue())
+				msgformat += "> bool-option: %v\n"
+			}
+
+			if opt, ok := optionMap["channel-option"]; ok {
+				margs = append(margs, opt.ChannelValue(nil).ID)
+				msgformat += "> channel-option: <#%s>\n"
+			}
+
+			if opt, ok := optionMap["user-option"]; ok {
+				margs = append(margs, opt.UserValue(nil).ID)
+				msgformat += "> user-option: <@%s>\n"
+			}
+
+			if opt, ok := optionMap["role-option"]; ok {
+				margs = append(margs, opt.RoleValue(nil, "").ID)
+				msgformat += "> role-option: <@&%s>\n"
+			}
+
+			s.InteractionRespond(i.Interaction, &discordgo.InteractionResponse{
+				// Ignore type for now, they will be discussed in "responses"
+				Type: discordgo.InteractionResponseChannelMessageWithSource,
+				Data: &discordgo.InteractionResponseData{
+					Content: fmt.Sprintf(
+						msgformat,
+						margs...,
+					),
+				},
+			})
+		},
+```
+well, what do these codeblocks mean? well, for starters:
+ 1. the first one is a command that checks if the bot has permissions to run a command. it then sends a message if it doesnt. could you tell? no? me neither.
+ 2. the second one is a command that takes in options and sends a message with the options. how on earth is this considered readable?
+
+and here is the kicker; **every single line of code i posted here is from the official examples.** i didnt make this up. this is how the official examples look like, and this is just the tip of the iceberg. every example is a single main.go file written (sans one) are two years old lol
+
+## conclusion
+
+i dont know if i am just a moron or if the library is just bad. but i do know that i am not the only one who thinks this.
+im not done with all of my complaints, i just want to finish this. ill just update this blog idrc. bye

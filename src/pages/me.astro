@@ -1,100 +1,99 @@
 ---
 import Layout from "../layouts/Layout.astro";
 const skills = [
-  "Go",
-  "TypeScript",
-  "JavaScript",
-  "Disgo",
-  "Lua",
-  "HTML",
-  "discord.js",
-  "Linux",
-  "Water Polo",
-  "Swimming",
-  "Civil Engineering",
-  "Architectural Design",
-  "Strong Towns",
-  "Procrastination",
-  "Annoying People",
+    "Go",
+    "TypeScript",
+    "JavaScript",
+    "Disgo",
+    "Lua",
+    "HTML",
+    "discord.js",
+    "Linux",
+    "Water Polo",
+    "Swimming",
+    "Civil Engineering",
+    "Architectural Design",
+    "Strong Towns",
+    "Procrastination",
+    "Annoying People",
 ];
 import Quote from "../components/Quote.astro";
 ---
 
 <Layout title="imide" description="imide's personal website">
-  <div class="flex w-full flex-col items-center justify-center gap-2 md:p-8">
-    <div class="w-full flex-col px-8 py-4 md:w-2/3 lg:w-1/2">
-      <div class="flex flex-wrap items-end justify-between gap-4">
-        <div class="flex items-center gap-4">
-          <img
-            src="/profilepicture.png"
-            alt="pfp"
-            class="h-8 w-8 rounded-full border-[1px] border-fg"
-          />
-          <h1 class="self-end text-left text-2xl text-fg">imide</h1>
-          <h1 class="text-md self-end text-left text-gray-500">15M (he/him)</h1>
-        </div>
-        <p class="text-gray-500">
-          imide - a strongly basic anion, NH2−, or a salt containing it
-        </p>
-      </div>
-      <p class="mt-8 text-[20px] text-bright">
-        hey. im just a lazy, bored, and dumb coloradan kid that cant breathe
-        well. currently working on a side project, <a
-          href="https://jeemain.nta.ac.in/"
-          target="_blank"
-          class="text-fg underline">yasmb.</a
-        > i sometimes enjoy coding in my freetime. i am kinda good in <span
-          class="text-fg"
-          >backend development, linux administration, shitposting and video
+    <div class="flex w-full flex-col items-center justify-center gap-2 md:p-8">
+        <div class="w-full flex-col px-8 py-4 md:w-2/3 lg:w-1/2">
+            <div class="flex flex-wrap items-end justify-between gap-4">
+                <div class="flex items-center gap-4">
+                    <img
+                            src="/profilepicture.png"
+                            alt="pfp"
+                            class="h-8 w-8 rounded-full border-[1px] border-fg"
+                    />
+                    <h1 class="self-end text-left text-2xl text-fg">imide</h1>
+                    <h1 class="text-md self-end text-left text-gray-500">15M (he/him)</h1>
+                </div>
+                <p class="text-gray-500">
+                    imide - a strongly basic anion, NH2−, or a salt containing it
+                </p>
+            </div>
+            <p class="mt-8 text-[20px] text-bright">
+                hey. im just a lazy, bored, and dumb coloradan kid that cant breathe
+                well. currently working on a side project, <a
+                    href="https://github.com/imide/yasmb"
+                    target="_blank"
+                    class="text-fg underline">yasmb.</a
+            > i sometimes enjoy coding in my freetime. i am kinda good in <span
+                    class="text-fg"
+            >backend development, linux administration, shitposting and video
           games (debatable).</span
-        > i am willing to learn new things. if i can focus on them.
-      </p>
-      <p class="mt-8 text-[20px] text-bright">
-        my timezone is <span class="text-fg">mst</span> which is <span
-          class="text-fg">2 hours behind est.</span
-        >
-      </p>
-      <p class="mt-3 text-[20px] text-bright">
-        i am a strong believer in the <a
-          href="https://www.strongtowns.org/"
-          target="_blank"
-          class="text-fg underline">strong towns movement.</a
-        >
-        <div class="mt-8 inline-block h-[2px] bg-bg3 px-16"></div>
-        <h1 class="mb-2 mt-8 text-2xl text-fg">
-          <span class="text-gray-500">"skill"</span> set
-        </h1>
-        <div class="flex flex-wrap gap-4">
-          {
-            skills.map((i, j) => {
-              return (
-                <p class="mt-2  rounded-md bg-mbg px-4 py-2 text-fg">{i}</p>
-              );
-            })
-          }
+            > i am willing to learn new things. if i can focus on them.
+            </p>
+            <p class="mt-8 text-[20px] text-bright">
+                my timezone is <span class="text-fg">mst</span> which is <span
+                    class="text-fg">2 hours behind est.</span
+            >
+            </p>
+            <p class="mt-3 text-[20px] text-bright">
+                i am a strong believer in the <a
+                    href="https://www.strongtowns.org/"
+                    target="_blank"
+                    class="text-fg underline">strong towns movement.</a
+            >
+            <div class="mt-8 inline-block h-[2px] bg-bg3 px-16"></div>
+            <h1 class="mb-2 mt-8 text-2xl text-fg">
+                <span class="text-gray-500">"skill"</span> set
+            </h1>
+            <div class="flex flex-wrap gap-4">
+                {
+                    skills.map((i, j) => {
+                        return (
+                                <p class="mt-2  rounded-md bg-mbg px-4 py-2 text-fg">{i}</p>
+                        );
+                    })
+                }
+            </div>
+            <div class="mt-8 inline-block h-[2px] bg-bg3 px-16"></div>
+            <h1 class="mb-2 mt-8 text-2xl text-fg">
+                <span class="text-gray-500">my</span> setup
+            </h1>
+            <ul
+                    class="mt-4 list-inside list-decimal text-lg leading-[2.2rem] text-bright"
+            >
+                <li>
+                    operating system: <span class="text-fg">endeavouros, windows</span>
+                </li>
+                <li>
+                    desktops: <span class="text-fg">kde, hyprland</span>
+                </li>
+                <li>terminal and shell: <span class="text-fg">st with fish</span></li>
+                <li>ide: <span class="text-fg">jetbrains</span></li>
+            </ul>
+            <div class="mt-8 inline-block h-[2px] bg-bg3 px-16"></div>
+            <h1 class="mb-2 mt-8 text-2xl text-fg">
+                <span class="text-gray-500">testimonial</span>
+            </h1>
+            <Quote/>
         </div>
-        <div class="mt-8 inline-block h-[2px] bg-bg3 px-16"></div>
-        <h1 class="mb-2 mt-8 text-2xl text-fg">
-          <span class="text-gray-500">my</span> setup
-        </h1>
-        <ul
-          class="mt-4 list-inside list-decimal text-lg leading-[2.2rem] text-bright"
-        >
-          <li>
-            operating system: <span class="text-fg">endeavour, windows</span>
-          </li>
-          <li>
-            desktops: <span class="text-fg">gnome, hyprland</span>
-          </li>
-          <li>terminal and shell: <span class="text-fg">st with fish</span></li>
-          <li>ide: <span class="text-fg">jetbrains</span></li>
-        </ul>
-        <div class="mt-8 inline-block h-[2px] bg-bg3 px-16"></div>
-        <h1 class="mb-2 mt-8 text-2xl text-fg">
-          <span class="text-gray-500">testimonial</span>
-        </h1>
-        <Quote />
-      </p>
     </div>
-  </div>
 </Layout>

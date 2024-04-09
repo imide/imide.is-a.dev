@@ -1,3 +1,9 @@
 @import "mafs/core.css";
 @import "mafs/font.css";
 @import "katex/dist/katex.min.css";
+
+.centered {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}

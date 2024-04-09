@@ -3,59 +3,59 @@ import Layout from "../../layouts/Layout.astro";
 
 let allPosts = await Astro.glob("../../rants/*.mdx");
 let arr = allPosts.sort(
-  (a, b) =>
-    new Date(b.frontmatter.date).valueOf() -
-    new Date(a.frontmatter.date).valueOf(),
+    (a, b) =>
+        new Date(b.frontmatter.date).valueOf() -
+        new Date(a.frontmatter.date).valueOf(),
 );
 ---
 
 <Layout title="rants" description="archive list">
-  <div class="div w-screen">
-    <div class="flex items-center justify-center gap-2 lg:gap-0">
-      <div class="w-full p-2 md:w-2/3 lg:w-1/2">
-        <div
-          class="flex flex-col justify-start gap-8 p-2 text-slate-950 md:gap-4 md:p-8 lg:p-8"
-        >
-          <ul class="flex w-full flex-wrap">
-            {
-              arr.map((item, index) => {
-                const href = `/rants/${item.file.split("/").pop().split(".").shift()}`;
-                return (
-                  <a
-                    href={href}
-                    class="flex flex cursor-pointer flex-col flex-col items-start gap-3"
-                  >
-                    <div class="flex flex-col items-start px-8 py-4 md:px-12 lg:px-16 lg:py-2">
-                      <div class="flex flex-wrap items-center gap-2 md:gap-4">
-                        <h2 class="mb-4 mt-4 text-2xl font-bold text-fg sm:text-2xl">
+    <div class="div w-screen">
+        <div class="flex items-center justify-center gap-2 lg:gap-0">
+            <div class="w-full p-2 md:w-2/3 lg:w-1/2">
+                <div
+                        class="flex flex-col justify-start gap-8 p-2 text-slate-950 md:gap-4 md:p-8 lg:p-8"
+                >
+                    <ul class="flex w-full flex-wrap">
+                        {
+                            arr.map((item, index) => {
+                                const href = `/rants/${item.file.split("/").pop().split(".").shift()}`;
+                                return (
+                                        <a
+                                                href={href}
+                                                class="flex flex cursor-pointer flex-col flex-col items-start gap-3"
+                                        >
+                                            <div class="flex flex-col items-start px-8 py-4 md:px-12 lg:px-16 lg:py-2">
+                                                <div class="flex flex-wrap items-center gap-2 md:gap-4">
+                                                    <h2 class="mb-4 mt-4 text-2xl font-bold text-fg sm:text-2xl">
                           <span class="mr-2 font-sans font-bold text-fg text-primary">
                             {index + 1}.
                           </span>
-                          {item.frontmatter.title}
-                        </h2>
+                                                        {item.frontmatter.title}
+                                                    </h2>
 
-                        <div class="flex items-center gap-2 md:gap-4">
-                          <div class="rounded-md bg-mbg p-2 font-mono font-light text-fg">
-                            {item.frontmatter.category}
-                          </div>
-                          <p class="flex-end text-md leading-relaxed text-fg">
-                            {item.frontmatter.date}
-                          </p>
-                        </div>
-                      </div>
-                      <p class="mb-4 text-lg leading-relaxed text-bright text-bright">
-                        {item.frontmatter.description}
-                      </p>
-                    </div>
-                  </a>
-                );
-              })
-            }
-          </ul>
+                                                    <div class="flex items-center gap-2 md:gap-4">
+                                                        <div class="rounded-md bg-mbg p-2 font-mono font-light text-fg">
+                                                            {item.frontmatter.category}
+                                                        </div>
+                                                        <p class="flex-end text-md leading-relaxed text-fg">
+                                                            {item.frontmatter.date}
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <p class="mb-4 text-lg leading-relaxed text-bright text-bright">
+                                                    {item.frontmatter.description}
+                                                </p>
+                                            </div>
+                                        </a>
+                                );
+                            })
+                        }
+                    </ul>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </Layout>
 
 <style></style>

@@ -1,94 +1,97 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 export async function getStaticPaths() {
-  const posts = await Astro.glob("../../rants/*.mdx");
-  return posts.map((p) => ({
-    params: { slug: p.file.split("/").pop().split(".").shift() },
-    props: { post: p },
-  }));
+    const posts = await Astro.glob("../../rants/*.mdx");
+    return posts.map((p) => ({
+        params: {slug: p.file.split("/").pop().split(".").shift()},
+        props: {post: p},
+    }));
 }
 
-const { Content, frontmatter } = Astro.props.post;
-const { title, description, date } = frontmatter;
+export const prerender = true;
+
+const {Content, frontmatter} = Astro.props.post;
+const {title, description, date} = frontmatter;
 ---
 
 <Layout title={title} description={description}>
-  <div class="flex justify-center">
-    <div
-      class="div content flex w-full flex-col items-center justify-center gap-2 break-words p-4 text-lg leading-10 text-fg md:w-3/4 md:p-8 md:px-16 lg:w-2/3 lg:p-8 lg:px-24"
-    >
-      <a
-        href="/rants"
-        class="text-lightpr dark:text-darkpr text-md cursor-pointer self-start font-medium underline underline-offset-4"
-        >Go Back</a
-      >
-      <h1 class="self-start text-5xl">{title}</h1>
-      <div class="w-full">
-        <Content />
-      </div>
-      <div class="self-end">
-        <div class="mt-4 flex items-center justify-end gap-2">
-          <img src="/pfpr.png" class="h-8 rounded-[100px]" />
-          <p>imide</p>
+    <div class="flex justify-center">
+        <div
+                class="div content flex w-full flex-col items-center justify-center gap-2 break-words p-4 text-lg leading-10 text-fg md:w-3/4 md:p-8 md:px-16 lg:w-2/3 lg:p-8 lg:px-24"
+        >
+            <a
+                    href="/rants"
+                    class="text-lightpr dark:text-darkpr text-md cursor-pointer self-start font-medium underline underline-offset-4"
+            >go back</a
+            >
+            <h1 class="self-start text-5xl ">{title}</h1>
+            <hr/>
+            <div class="w-full">
+                <Content/>
+            </div>
+            <div class="self-end">
+                <div class="mt-4 flex items-center justify-end gap-2">
+                    <img src="/pfpr.png" class="h-8 rounded-[100px]" alt="round pfp"/>
+                    <p>imide</p>
+                </div>
+                <div class="-mt-4 text-right">{date}</div>
+            </div>
         </div>
-        <div class="-mt-4 text-right">{date}</div>
-      </div>
     </div>
-  </div>
 </Layout>
 <style is:global>
-  .content h1,
-  h2,
-  h3,
-  h4 {
-    @apply my-3 font-sans;
-  }
+    .content h1,
+    h2,
+    h3,
+    h4 {
+        @apply my-3 font-sans;
+    }
 
-  .content h1 {
-    @apply text-4xl font-bold;
-  }
+    .content h1 {
+        @apply text-4xl font-bold text-secondary;
+    }
 
-  .content h2 {
-    @apply text-3xl font-bold;
-  }
+    .content h2 {
+        @apply text-3xl font-bold text-secondary;
+    }
 
-  .content h3 {
-    @apply text-2xl;
-  }
+    .content h3 {
+        @apply text-2xl font-bold text-secondary;
+    }
 
-  .content ul {
-    @apply ml-4 list-disc text-fg marker:text-fg;
-  }
+    .content ul {
+        @apply ml-4 list-disc text-fg marker:text-fg;
+    }
 
-  .content ol {
-    @apply ml-4 list-decimal text-fg marker:text-fg;
-  }
+    .content ol {
+        @apply ml-4 list-decimal text-fg marker:text-fg;
+    }
 
-  .content a {
-    @apply text-lg font-medium text-primary underline underline-offset-4;
-  }
+    .content a {
+        @apply text-lg font-medium text-primary underline underline-offset-4;
+    }
 
-  .content hr {
-    @apply my-4 h-1 w-24 rounded border-0 bg-zinc-100 md:my-10 dark:bg-zinc-700;
-  }
+    .content hr {
+        @apply my-4 h-1 w-24 rounded border-0 bg-zinc-100 md:my-10 dark:bg-zinc-700;
+    }
 
-  .content pre {
-    @apply my-6 rounded-lg p-8 font-mono;
-  }
+    .content pre {
+        @apply my-6 rounded-lg p-8 font-mono;
+    }
 
-  .content pre code span {
-    @apply font-mono;
-  }
+    .content pre code span {
+        @apply font-mono;
+    }
 
-  .content pre code {
-    @apply bg-transparent px-0;
-  }
+    .content pre code {
+        @apply bg-transparent px-0;
+    }
 
-  .content img {
-    @apply my-4 rounded-lg object-cover;
-  }
+    .content img {
+        @apply my-4 rounded-lg object-cover;
+    }
 
-  .content code {
-    @apply bg-mbg px-2 font-mono;
-  }
+    .content code {
+        @apply bg-mbg px-2 font-mono;
+    }
 </style>

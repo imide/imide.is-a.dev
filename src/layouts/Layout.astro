@@ -1,127 +1,126 @@
 ---
 import "../styles/global.css";
 import Navbar from "../components/Navbar.astro";
-const { title, description } = Astro.props;
+const {title, description} = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
-  <head>
+<head>
     <script
-      defer
-      data-domain="imide.is-a.dev"
-      src="https://analytics.is-a.dev/js/script.js"></script>
-    <meta charset="UTF-8" />
+            defer
+            data-domain="imide.is-a.dev"
+            src="https://analytics.is-a.dev/js/script.js"></script>
+    <meta charset="UTF-8"/>
 
-    <meta name="description" content="imide's website" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/png" href="/pfpr.png" />
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content="imide's website"/>
+    <meta name="viewport" content="width=device-width"/>
+    <link rel="icon" type="image/png" href="/pfpr.png"/>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width"/>
 
     <!-- Primary Meta Tags -->
     <title>{title}</title>
     <link
-      rel="sitemap"
-      type="application/xml"
-      title="Sitemap"
-      href="/sitemap-index.xml"
+            rel="sitemap"
+            type="application/xml"
+            title="Sitemap"
+            href="/sitemap-index.xml"
     />
-    <meta name="title" content={title} />
-    <meta name="description" content={description} />
+    <meta name="title" content={title}/>
+    <meta name="description" content={description}/>
 
     <!-- Favicons -->
 
     <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:image" content="https://imide.is-a.dev/cat.gif" />
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content={title}/>
+    <meta property="og:description" content={description}/>
+    <meta property="og:image" content="https://imide.is-a.dev/cat.gif"/>
 
     <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:title" content={title} />
-    <meta property="twitter:description" content={description} />
-    <meta property="twitter:image" content="https://imide.is-a.dev/cat.gif`" />
+    <meta property="twitter:card" content="summary_large_image"/>
+    <meta property="twitter:title" content={title}/>
+    <meta property="twitter:description" content={description}/>
+    <meta property="twitter:image" content="https://imide.is-a.dev/cat.gif`"/>
     <script defer src="https://unpkg.com/typeit@8.7.1/dist/index.umd.js"
     ></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
     <script defer src="https://unpkg.com/@phosphor-icons/web"></script>
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
     <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css"
-      integrity="sha384-Um5gpz1odJg5Z4HAmzPtgZKdTBHZdw8S29IecapCSB31ligYPhHQZMIlWLYQGVoc"
-      crossorigin="anonymous"
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css"
+            integrity="sha384-Um5gpz1odJg5Z4HAmzPtgZKdTBHZdw8S29IecapCSB31ligYPhHQZMIlWLYQGVoc"
+            crossorigin="anonymous"
     />
-    <meta name="generator" content={Astro.generator} />
+    <meta name="generator" content={Astro.generator}/>
     <title>{title}</title>
-  </head>
-  <body class="overflow-x-hidden bg-bg">
-    <Navbar />
-    <slot />
-  </body>
+</head>
+<body class="overflow-x-hidden bg-bg">
+<Navbar/>
+<slot/>
+</body>
 </html>
 <style is:global>
-  * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family:
-      Product Sans,
-      sans-serif;
-  }
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        font-family: Product Sans,
+        sans-serif;
+    }
 
-  *::-webkit-scrollbar {
-    width: 15px;
-    background: #090909;
-  }
+    *::-webkit-scrollbar {
+        width: 15px;
+        background: #090909;
+    }
 
-  *::-webkit-scrollbar-thumb {
-    background-color: #222;
-    border-radius: 3px;
-  }
+    *::-webkit-scrollbar-thumb {
+        background-color: #222;
+        border-radius: 3px;
+    }
 
-  .serif {
-    font-family: "Bree Serif", serif;
-  }
+    .serif {
+        font-family: "Bree Serif", serif;
+    }
 
-  @font-face {
-    font-family: "Product Sans";
-    src: url("/fonts/ProductSans-Regular.ttf") format("truetype");
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-  }
+    @font-face {
+        font-family: "Product Sans";
+        src: url("/fonts/ProductSans-Regular.ttf") format("truetype");
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+    }
 
-  @font-face {
-    font-family: "Product Sans Light";
-    src: url("/fonts/ProductSans-Light.ttf") format("truetype");
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-  }
+    @font-face {
+        font-family: "Product Sans Light";
+        src: url("/fonts/ProductSans-Light.ttf") format("truetype");
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+    }
 
-  @font-face {
-    font-family: "Iosevka";
-    src: url("/fonts/Iosevka.ttf") format("truetype");
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-  }
+    @font-face {
+        font-family: "Iosevka";
+        src: url("/fonts/Iosevka.ttf") format("truetype");
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+    }
 
-  :root {
-    --astro-code-color-text: #dee1e6;
-    --astro-code-color-background: #060606;
-    --astro-code-token-constant: #d466e9;
-    --astro-code-token-string: #56966e;
-    --astro-code-token-comment: #485263;
-    --astro-code-token-keyword: #c14d53;
-    --astro-code-token-parameter: #c14d53;
-    --astro-code-token-function: #6a9f98;
-    --astro-code-token-string-expression: #56966e;
-    --astro-code-token-punctuation: #dee1e6;
-    --astro-code-token-link: #dee1e6;
-  }
+    :root {
+        --astro-code-color-text: #dee1e6;
+        --astro-code-color-background: #060606;
+        --astro-code-token-constant: #d466e9;
+        --astro-code-token-string: #56966e;
+        --astro-code-token-comment: #485263;
+        --astro-code-token-keyword: #c14d53;
+        --astro-code-token-parameter: #c14d53;
+        --astro-code-token-function: #6a9f98;
+        --astro-code-token-string-expression: #56966e;
+        --astro-code-token-punctuation: #dee1e6;
+        --astro-code-token-link: #dee1e6;
+    }
 </style>
