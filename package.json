@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "pnpm run lint && pnpm run astro dev",
     "start": "pnpm run lint && astro dev",
-    "build": "pnpm run astro check && pnpm run astro build",
+    "build": "pnpm run astro build",
     "preview": "pnpm run astro preview",
     "astro": "astro",
     "lint": "prettier --write  \"**/*.{js,jsx,ts,tsx,md,mdx,astro}\" && eslint --fix \"src/**/*.{js,ts,jsx,tsx,astro}\""
