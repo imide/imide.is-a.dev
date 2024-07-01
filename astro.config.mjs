@@ -1,11 +1,12 @@
 import { defineConfig } from "astro/config";
 import tailwind from "@astrojs/tailwind";
 import mdx from "@astrojs/mdx";
-import remarkMdxCodeMeta from "remark-mdx-code-meta";
+import remarkMdxCodeMeta from "rehype-mdx-code-props";
 import react from "@astrojs/react";
 import unocss from "@unocss/astro";
 import swup from "@swup/astro";
-import netlify from "@astrojs/netlify";
+
+import node from "@astrojs/node";
 
 // https://astro.build/config
 export default defineConfig({
@@ -23,9 +24,8 @@ export default defineConfig({
   }), react(), unocss(), swup({
     smoothScrolling: true
   })],
-  adapter: netlify({
-    edgeMiddleware: true
-  }
-  ),
-  output: "server"
+  output: "server",
+  adapter: node({
+    mode: "standalone"
+  })
 });
