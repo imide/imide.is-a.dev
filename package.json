@@ -4,7 +4,7 @@
   "version": "1.0.3",
   "scripts": {
     "dev": "pnpm run lint && pnpm run astro dev",
-    "start": "pnpm run lint && astro dev",
+    "start": "astro dev",
     "build": "pnpm run astro build",
     "preview": "pnpm run astro preview",
     "astro": "astro",
