@@ -5,7 +5,6 @@ import remarkMdxCodeMeta from "rehype-mdx-code-props";
 import react from "@astrojs/react";
 import unocss from "@unocss/astro";
 import swup from "@swup/astro";
-import node from "@astrojs/node";
 
 import cloudflare from "@astrojs/cloudflare";
 
